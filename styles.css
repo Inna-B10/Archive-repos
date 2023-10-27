@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: space-around;
+  margin: 40px 20px;
+  font-size: 16px;
+  color: #000000;
+}
+.article {
+  padding: 0 30px;
+}
+
+.title {
+  font-weight: lighter;
+}
+
+.main-img {
+  box-shadow: 0px 2px 5px lightgray;
+  width: 300px;
+}
+
+.breadcrumb {
+  color: #565959;
+  font-size: 12px;
+}
+a {
+  color: #007185;
+}
+.rating {
+  padding: 8px 0;
+  width: 100px;
+}
