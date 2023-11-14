@@ -11,18 +11,20 @@ body {
   /* background: linear-gradient(#a2d2ff, #efb0ce);*/
   color: #ffffff;
 }
-#header,
-.gift {
+
+#header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: start;
 }
+
 #photo {
   width: 150px;
   border: 6px solid #efb0ce;
   border-radius: 50%;
 }
+
 h1,
 h2,
 h3,
@@ -38,18 +40,23 @@ p {
   border-radius: 6px;
   margin: 0px;
 }
+
 #bday-age {
   margin: 15px 0 10px 0;
 }
+
 .gift-section {
   margin-top: 50px;
 }
+
 .gift-title {
   margin-bottom: 10px;
 }
+
 .gift-hint {
   margin-top: 0px;
 }
+
 .gift-img {
   width: 400px;
   height: 400px;
@@ -64,22 +71,28 @@ p {
 #happy:hover {
   background-image: url("images/happy.gif");
 }
+
 #hot:hover {
   background-image: url("images/hot.gif");
 }
+
 #genius:hover {
   background-image: url("images/genius.gif");
 }
+
 #badass:hover {
   background-image: url("images/badass.gif");
 }
+
 #cheers {
   height: 200px;
 }
+
 #cheers:hover {
   height: 200px;
   background-image: url("images/cheers.gif");
 }
+
 #footer {
   width: 400px;
   margin: 40px auto 20px auto;
@@ -87,6 +100,7 @@ p {
   font-size: 18px;
   text-shadow: 0 0 2px #020202;
 }
+
 a {
   color: #fff;
 }
