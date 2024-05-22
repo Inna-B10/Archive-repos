@@ -1,1 +1,1 @@
-My last project from Scrimba
+### Scrimba: HTML + CSS exercises
