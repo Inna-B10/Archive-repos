@@ -1,6 +1,6 @@
---create database ShoppingCartDb
+--create database ShopDb
 
---create table tblProducts(
+--create table Products(
 --ID int Identity(1,1) Primary Key,
 --Name varchar(100),
 --Image varchar(100),
@@ -8,12 +8,12 @@
 --DiscountedPrice decimal(18,2))
 
 
---create table Cart(
+--create table ShoppingCart(
 --ID int Identity(1,1) Primary Key,
 --ProductID int)
 
 
---insert into tblProducts values
+--insert into Products values
 --('Red shoes', 'd5.jpg', 115.00, 60.00),
 --('Watch', 'd1.jpg', 195.00, 95.00),
 --('Jeans', 'd8.jpg', 95.00, 40.00),
@@ -24,17 +24,17 @@
 --('Sunglasses', 'd6.jpg', 84.00, 36.00)
 
 
-use ShoppingCartDb
+use ShopDb
 
-select P.ID, P.Name, P.Image, P.ActualPrice, P.DiscountedPrice from Cart C
-INNER JOIN tblProducts P
+select P.ID, P.Name, P.Image, P.ActualPrice, P.DiscountedPrice from ShoppingCart C
+INNER JOIN Products P
 ON C.ProductID = P.Id;
 
---delete from Cart where ProductID = 6
+--delete from ShoppingCart where ProductID = 6
 
 
 
-select * from tblProducts
-select * from Cart
+select * from Products
+select * from ShoppingCartCart
 
---drop table tblProducts
+--drop table Products

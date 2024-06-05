@@ -29,7 +29,7 @@ namespace Shopping_Cart_App.Controllers
         {
             List<Products> lstproducts = new List<Products>();
             SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("ShoppingCon")?.ToString());
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM tblProducts;",connection);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Products;",connection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             Response response = new Response();
@@ -76,7 +76,7 @@ namespace Shopping_Cart_App.Controllers
             SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("ShoppingCon")?.ToString());
             Response response = new Response();
             if (products.Id > 0) {
-                SqlCommand cmd = new SqlCommand("Insert into Cart(ProductID) VALUES('"+products.Id+"')", connection);
+                SqlCommand cmd = new SqlCommand("Insert into ShoppingCart(ProductID) VALUES('"+products.Id+"')", connection);
                 connection.Open();
                 int i = cmd.ExecuteNonQuery();
                 connection.Close();
@@ -110,7 +110,7 @@ namespace Shopping_Cart_App.Controllers
             Response response = new Response();
             if (products.Id > 0)
             {
-                SqlCommand cmd = new SqlCommand("Delete from Cart where ProductId = ('" + products.Id + "')", connection);
+                SqlCommand cmd = new SqlCommand("Delete from ShoppingCart where ProductId = ('" + products.Id + "')", connection);
                 connection.Open();
                 int i = cmd.ExecuteNonQuery();
                 connection.Close();
@@ -142,7 +142,7 @@ namespace Shopping_Cart_App.Controllers
         {
             List<Products> lstproducts = new List<Products>();
             SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("ShoppingCon")?.ToString());
-            SqlDataAdapter da = new SqlDataAdapter("select P.ID, P.Name, P.Image, P.ActualPrice, P.DiscountedPrice from Cart C INNER JOIN tblProducts P ON C.ProductID = P.Id;", connection);
+            SqlDataAdapter da = new SqlDataAdapter("select P.ID, P.Name, P.Image, P.ActualPrice, P.DiscountedPrice from ShoppingCart C INNER JOIN Products P ON C.ProductID = P.Id;", connection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             Response response = new Response();
