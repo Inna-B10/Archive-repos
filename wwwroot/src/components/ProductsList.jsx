@@ -9,28 +9,28 @@ function ProductsList() {
 	useEffect(() => {
 		axios
 			.get('https://localhost:7018/Shop/ProductsList')
-			.then((result) => {
+			.then(result => {
 				setData(result.data.listProducts)
 			})
-			.catch((error) => {
+			.catch(error => {
 				console.log(error)
 			})
 	}, [])
 
-	const handleAddProduct = (id) => {
+	const handleAddProduct = id => {
 		const data = {
-			Id: id
+			Id: id,
 		}
 		axios
 			.post('https://localhost:7018/Shop/AddProduct', data)
-			.then((result) => {
+			.then(result => {
 				if (result.data.statusCode === 200) {
 					alert('Item added')
 				} else {
 					alert('No item added')
 				}
 			})
-			.catch((error) => {
+			.catch(error => {
 				console.log(error)
 			})
 	}
@@ -42,6 +42,7 @@ function ProductsList() {
 					<h1 className='title-w3layouts'>products list</h1>
 				</div>
 
+				{/* <div className='wthreeproductdisplay'> */}
 				<div className='wthreeproductdisplay'>
 					<div className='container'>
 						<div className='top-grid'>

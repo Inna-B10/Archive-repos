@@ -8,11 +8,11 @@ function ShoppingCart() {
 	const getData = () => {
 		axios
 			.get('https://localhost:7018/Shop/ShoppingCart')
-			.then((result) => {
+			.then(result => {
 				console.log(result.data.listProducts)
 				setData(result.data.listProducts)
 			})
-			.catch((error) => {
+			.catch(error => {
 				console.log(error)
 			})
 	}
@@ -21,13 +21,13 @@ function ShoppingCart() {
 		getData()
 	}, [])
 
-	const handleRemoveProduct = (id) => {
+	const handleRemoveProduct = id => {
 		const data = {
-			Id: id
+			Id: id,
 		}
 		axios
 			.post('https://localhost:7018/Shop/RemoveProduct', data)
-			.then((result) => {
+			.then(result => {
 				if (result.data.statusCode === 200) {
 					alert('Item removed')
 					getData()
@@ -35,7 +35,7 @@ function ShoppingCart() {
 					alert('No item removed')
 				}
 			})
-			.catch((error) => {
+			.catch(error => {
 				console.log(error)
 			})
 	}
@@ -50,6 +50,7 @@ function ShoppingCart() {
 					</h1>
 				</div>
 
+				{/* <div className='wthreeproductdisplay'> */}
 				<div className='wthreeproductdisplay'>
 					<div className='container'>
 						<div className='top-grid'>
@@ -102,7 +103,8 @@ function ShoppingCart() {
 					</div>
 				</div>
 				{/*
-				<div className='wthreecartaits wthreecartaits2 cart cart box_1'>
+				// <div className='wthreecartaits wthreecartaits2 cart cart box_1'>
+				<div>
 					<form action='#' method='post' className='last'>
 						<input type='hidden' name='cmd' value='_cart' />
 						<input type='hidden' name='display' value='1' />

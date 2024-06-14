@@ -1,4 +1,5 @@
 --create database ShopDb
+--use ShopDb
 
 --create table Products(
 --ID int Identity(1,1) Primary Key,
@@ -35,6 +36,6 @@ ON C.ProductID = P.Id;
 
 
 select * from Products
-select * from ShoppingCartCart
+select * from ShoppingCart
 
 --drop table Products
