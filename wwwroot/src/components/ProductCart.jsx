@@ -12,7 +12,7 @@ ProductCart.propTypes = {
 		actualPrice: PropTypes.number.isRequired,
 	}).isRequired,
 	handle: PropTypes.string.isRequired,
-	updateCart: PropTypes.func.isRequired,
+	updateCart: PropTypes.func,
 }
 
 export default function ProductCart({ index, item, handle, updateCart }) {
