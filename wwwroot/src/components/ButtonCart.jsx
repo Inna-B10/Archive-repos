@@ -1,4 +1,11 @@
 import axios from 'axios'
+import PropTypes from 'prop-types'
+
+ButtonCart.propTypes = {
+	itemId: PropTypes.number.isRequired,
+	handle: PropTypes.string.isRequired,
+	updateCart: PropTypes.func.isRequired,
+}
 
 export default function ButtonCart({ itemId, handle, updateCart }) {
 	const handleRemoveProduct = id => {
