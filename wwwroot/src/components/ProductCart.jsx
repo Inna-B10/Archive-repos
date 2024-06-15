@@ -1,5 +1,19 @@
+import PropTypes from 'prop-types'
 import { Fragment } from 'react'
 import ButtonCart from './ButtonCart'
+
+ProductCart.propTypes = {
+	index: PropTypes.number.isRequired,
+	item: PropTypes.shape({
+		id: PropTypes.number.isRequired,
+		name: PropTypes.string.isRequired,
+		image: PropTypes.string.isRequired,
+		discountedPrice: PropTypes.number.isRequired,
+		actualPrice: PropTypes.number.isRequired,
+	}).isRequired,
+	handle: PropTypes.string.isRequired,
+	updateCart: PropTypes.func.isRequired,
+}
 
 export default function ProductCart({ index, item, handle, updateCart }) {
 	return (
