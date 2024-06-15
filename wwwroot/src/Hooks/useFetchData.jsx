@@ -1,9 +1,8 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-const useFetchData = url => {
+export default function useFetchData(url) {
 	const [data, setData] = useState([])
-	const [error, setError] = useState(null)
 
 	useEffect(() => {
 		axios
@@ -12,12 +11,9 @@ const useFetchData = url => {
 				setData(result.data.listProducts)
 			})
 			.catch(error => {
-				setError(error)
 				console.log(error)
 			})
 	}, [url])
 
-	return { data, error }
+	return { data, setData }
 }
-
-export default useFetchData

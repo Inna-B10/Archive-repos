@@ -1,33 +1,16 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
-import useFetchData from '../Hooks/useFetchData'
 
-export default function ButtonCart({ itemId, handle }) {
-	const [btnText, setBtnText] = useState('')
-
-	useEffect(() => {
-		if (handle === 'addItem') {
-			setBtnText('Add item')
-		} else if (handle === 'removeItem') {
-			setBtnText('Remove item')
-		}
-	}, [handle])
-
-	const handleProductAction = (id, action) => {
-		const url =
-			action === 'addItem'
-				? 'https://localhost:7018/Shop/AddProduct'
-				: 'https://localhost:7018/Shop/RemoveProduct'
+export default function ButtonCart({ itemId, handle, updateCart }) {
+	const handleRemoveProduct = id => {
 		const data = { Id: id }
-
 		axios
-			.post(url, data)
+			.post('https://localhost:7018/Shop/RemoveProduct', data)
 			.then(result => {
 				if (result.data.statusCode === 200) {
-					alert(action === 'addItem' ? 'Item added' : 'Item removed')
-					useFetchData()
+					alert('Item removed')
+					updateCart(prevData => prevData.filter(item => item.id !== id))
 				} else {
-					alert(action === 'addItem' ? 'No item added' : 'No item removed')
+					alert('No item removed')
 				}
 			})
 			.catch(error => {
@@ -35,13 +18,37 @@ export default function ButtonCart({ itemId, handle }) {
 			})
 	}
 
+	const handleAddProduct = id => {
+		const data = { Id: id }
+		axios
+			.post('https://localhost:7018/Shop/AddProduct', data)
+			.then(result => {
+				if (result.data.statusCode === 200) {
+					alert('Item added')
+				} else {
+					alert('No item added')
+				}
+			})
+			.catch(error => {
+				console.log(error)
+			})
+	}
+
+	const handleClick = () => {
+		if (handle === 'addItem') {
+			handleAddProduct(itemId)
+		} else if (handle === 'removeItem') {
+			handleRemoveProduct(itemId)
+		}
+	}
+
 	return (
 		<button
 			type='submit'
 			className='button w3l-cart'
-			data-id='cart-1'
-			onClick={() => handleProductAction(itemId, handle)}>
-			{btnText}
+			data-id={`cart-${itemId}`}
+			onClick={handleClick}>
+			{handle === 'addItem' ? 'Add item' : 'Remove item'}
 		</button>
 	)
 }
